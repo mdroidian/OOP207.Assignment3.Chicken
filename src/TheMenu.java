@@ -30,10 +30,20 @@ public class TheMenu {
       for (int j = 0; j < menuCollection.getProductCollection().size(); j++) {
         Item product = menuCollection.getProductCollection().get(j);
         // menuContent += String.format("%-5d%-20s$%.2f%s", (j + 1), product.getTitle(), product.getPrice(), "\n");
-        menuContent += String.format("%s %-5d%-20s$%.2f%s",  i, (j + 1), product.getTitle(), product.getPrice(), "\n");
+        menuContent += String.format("%s %-5d%-20s$%.2f%s",  i, (j), product.getTitle(), product.getPrice(), "\n");
       }
     }
     
     return menuContent;
   }
+
+  public ArrayList<Collections> getMenuCollections() {
+      return this.menuCollections;
+  }
+
+  public Item getProduct(int collectionIndex, int itemIndex) {
+    Collections collection = this.menuCollections.get(collectionIndex);
+    return collection.getProductCollection().get(itemIndex);
+  }
 }
+

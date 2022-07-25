@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {    
@@ -18,6 +19,7 @@ public class App {
     VeganItems.addProduct(v2);
     
     // Print the menus 
+    
     TheMenu menu = new TheMenu();
     menu.addCollection(ChickenItems);
     menu.addCollection(VeganItems);
@@ -33,22 +35,21 @@ public class App {
     System.out.println("For example, Type 01 for \"Butter Chicken\".");
     System.out.println("Type \"D\" To Finish");
     
+    // Scanner sc = new Scanner(System.in);
+    // nextItem = sc.nextLine();
+    // System.out.println(nextItem);
+
     while(!nextItem.equals("D")) {
         Scanner sc = new Scanner(System.in);
         nextItem = sc.nextLine();
-        if (nextItem.equals("01")) {
-            order.add(c1); 
-        }
-        if (nextItem.equals("02")) {
-            order.add(c2); 
-        }
-        if (nextItem.equals("11")) {
-            order.add(v1); 
-        }
-        if (nextItem.equals("12")) {
-            order.add(v2); 
-        }
 
+        if (!nextItem.equals("D")) {
+        int collectionIndex = Character.getNumericValue(nextItem.charAt(0));
+
+        int itemIndex = Character.getNumericValue(nextItem.charAt(1));
+
+        order.add(menu.getProduct(collectionIndex, itemIndex));
+        }
     }
 
     order.printOrder();

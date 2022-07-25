@@ -10,7 +10,6 @@ public class Collections {
         this.productArray = new ArrayList<Item>();
     }
 
-
     public String getTitle() {
         return this.title;
     }
